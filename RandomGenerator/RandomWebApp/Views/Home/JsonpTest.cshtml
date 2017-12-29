@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Random Data Web API - JSONP Test";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <h1>@ViewBag.Title</h1>
+        <p>Domain: @Html.TextBox("TargetDomain", string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority))</p>
+        <dl>
+            <dt>NewUuid</dt>
+            <dd>
+                <p>
+                    <button id="NewUuidButton">Generate</button>
+                </p>
+                <pre id="NewUuidResult"> </pre>
+            </dd>
+            <dt>NewOrderedId</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedIdButton">Generate</button>
+                </p>
+                <pre id="NewOrderedIdResult"> </pre>
+            </dd>
+            <dt>NewOrderedId2</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedId2Button">Generate</button>
+                </p>
+                <pre id="NewOrderedId2Result"> </pre>
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <p>© 2014 Keiho Sakapon.</p>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#NewUuidButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewUuid?callback=?", function (data) {
+                    $("#NewUuidResult").text(data);
+                });
+            });
+            $("#NewOrderedIdButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId?callback=?", function (data) {
+                    $("#NewOrderedIdResult").text(data.id + "\n" + data.date);
+                });
+            });
+            $("#NewOrderedId2Button").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId2?callback=?", function (data) {
+                    $("#NewOrderedId2Result").text(data.id + "\n" + data.date);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
