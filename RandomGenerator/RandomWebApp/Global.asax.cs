@@ -20,10 +20,5 @@ namespace RandomWebApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
-
-        void Application_BeginRequest(object sender, EventArgs e)
-        {
-            FilterConfig.ValidateUrlScheme(this);
-        }
     }
 }
