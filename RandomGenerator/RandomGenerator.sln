@@ -15,21 +15,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomConsole", "RandomConsole\RandomConsole.csproj", "{5C9CE8D8-F9F0-4F5C-9B0B-85AB4B8E0EB6}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://saka-pon-apps14.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = RandomWebApp\\RandomWebApp.csproj
-		SccProjectName1 = RandomWebApp
-		SccLocalPath1 = RandomWebApp
-		SccProjectUniqueName2 = RandomLib\\RandomLib.csproj
-		SccProjectName2 = RandomLib
-		SccLocalPath2 = RandomLib
-		SccProjectUniqueName3 = RandomConsole\\RandomConsole.csproj
-		SccProjectName3 = RandomConsole
-		SccLocalPath3 = RandomConsole
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
