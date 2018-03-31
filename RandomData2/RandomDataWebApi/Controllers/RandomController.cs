@@ -12,7 +12,6 @@ namespace RandomDataWebApi.Controllers
     /// Generates random data.
     /// </summary>
     [RoutePrefix("api")]
-    [Route("{action}")]
     public class RandomController : ApiController
     {
         /// <summary>
@@ -83,12 +82,14 @@ namespace RandomDataWebApi.Controllers
         /// </summary>
         /// <returns>A version 4 UUID.</returns>
         [HttpGet]
+        [Route("NewUuid")]
         public Guid NewUuid()
         {
             return Guid.NewGuid();
         }
 
         [HttpGet]
+        [Route("NewOrderedId")]
         public GuidWithDateTime NewOrderedId()
         {
             return RandomData.GenerateOrderedGuid();
@@ -102,6 +103,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         [HttpGet]
+        [Route("NewOrderedId2")]
         public GuidWithDateTime NewOrderedId2()
         {
             return RandomData.GenerateOrderedGuid2();
