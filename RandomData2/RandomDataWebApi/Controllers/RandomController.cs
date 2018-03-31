@@ -80,7 +80,7 @@ namespace RandomDataWebApi.Controllers
         /// <summary>
         /// Creates a new UUID (GUID).
         /// </summary>
-        /// <returns>A version 4 UUID.</returns>
+        /// <returns>A <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29" target="_blank">version 4 UUID</a>.</returns>
         [HttpGet]
         [Route("NewUuid")]
         public Guid NewUuid()
