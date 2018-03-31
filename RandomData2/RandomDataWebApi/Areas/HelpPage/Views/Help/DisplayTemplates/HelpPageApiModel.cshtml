@@ -1,14 +1,20 @@
 @using System.Web.Http
 @using System.Web.Http.Description
+@using RandomDataWebApi
 @using RandomDataWebApi.Areas.HelpPage.Models
 @using RandomDataWebApi.Areas.HelpPage.ModelDescriptions
 @model HelpPageApiModel
 
 @{
     ApiDescription description = Model.ApiDescription;
+
+    var sampleUri = description.ParameterDescriptions
+        .Where(p => p.ParameterDescriptor.ParameterType == typeof(int))
+        .Aggregate(description.RelativePath, (uri, p) => uri.Replace($"{{{p.Name}}}", "8"));
 }
 <h1>@description.HttpMethod.Method @description.RelativePath</h1>
 <div>
+    <p>@Html.TextLink("/" + sampleUri)</p>
     <p>@description.Documentation</p>
 
     <h2>Request Information</h2>
