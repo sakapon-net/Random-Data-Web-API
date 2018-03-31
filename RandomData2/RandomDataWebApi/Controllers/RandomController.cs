@@ -59,5 +59,35 @@ namespace RandomDataWebApi.Controllers
         /// <returns>A new UUID (GUID).</returns>
         [HttpGet]
         public Guid NewUuid() => Guid.NewGuid();
+
+        [HttpGet]
+        public object NewOrderedId()
+        {
+            var id = RandomData.GenerateOrderedGuid();
+            return new { id = id.Guid, date = id.DateTime.ToIso8601String() };
+        }
+
+        [HttpGet]
+        [Route("NewOrderedId/sqlserver")]
+        public object NewOrderedId_SqlServer()
+        {
+            var id = RandomData.GenerateOrderedSqlGuid();
+            return new { id = id.Guid, date = id.DateTime.ToIso8601String() };
+        }
+
+        [HttpGet]
+        public object NewOrderedId2()
+        {
+            var id = RandomData.GenerateOrderedGuid2();
+            return new { id = id.Guid, date = id.DateTime.ToIso8601String() };
+        }
+
+        [HttpGet]
+        [Route("NewOrderedId2/sqlserver")]
+        public object NewOrderedId2_SqlServer()
+        {
+            var id = RandomData.GenerateOrderedSqlGuid2();
+            return new { id = id.Guid, date = id.DateTime.ToIso8601String() };
+        }
     }
 }
