@@ -11,6 +11,8 @@ namespace RandomDataWebApi
         {
             // Web API の設定およびサービス
 
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
             // Web API ルート
             config.MapHttpAttributeRoutes();
 
