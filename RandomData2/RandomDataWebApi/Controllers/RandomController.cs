@@ -15,6 +15,11 @@ namespace RandomDataWebApi.Controllers
     [Route("{action}")]
     public class RandomController : ApiController
     {
+        /// <summary>
+        /// Creates new alphabets with the specified length.
+        /// </summary>
+        /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
+        /// <returns>Alphabets.</returns>
         [HttpGet]
         [Route("NewAlphabets/{length:int:range(0,4096)}")]
         public string NewAlphabets(int length)
@@ -22,6 +27,11 @@ namespace RandomDataWebApi.Controllers
             return RandomData.GenerateAlphabets(length);
         }
 
+        /// <summary>
+        /// Creates new alphanumerics with the specified length.
+        /// </summary>
+        /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
+        /// <returns>Alphanumerics.</returns>
         [HttpGet]
         [Route("NewAlphanumerics/{length:int:range(0,4096)}")]
         public string NewAlphanumerics(int length)
@@ -29,6 +39,11 @@ namespace RandomDataWebApi.Controllers
             return RandomData.GenerateAlphanumerics(length);
         }
 
+        /// <summary>
+        /// Creates a new byte sequence with the specified length.
+        /// </summary>
+        /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
+        /// <returns>The lowercase hexadecimal format.</returns>
         [HttpGet]
         [Route("NewBytes/hexlower/{length:int:range(0,4096)}")]
         public string NewBytes_HexLower(int length)
@@ -37,6 +52,11 @@ namespace RandomDataWebApi.Controllers
             return data.ToHexString(false);
         }
 
+        /// <summary>
+        /// Creates a new byte sequence with the specified length.
+        /// </summary>
+        /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
+        /// <returns>The uppercase hexadecimal format.</returns>
         [HttpGet]
         [Route("NewBytes/hexupper/{length:int:range(0,4096)}")]
         public string NewBytes_HexUpper(int length)
@@ -45,6 +65,11 @@ namespace RandomDataWebApi.Controllers
             return data.ToHexString(true);
         }
 
+        /// <summary>
+        /// Creates a new byte sequence with the specified length.
+        /// </summary>
+        /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
+        /// <returns>The Base64 format.</returns>
         [HttpGet]
         [Route("NewBytes/base64/{length:int:range(0,4096)}")]
         public string NewBytes_Base64(int length)
@@ -56,9 +81,12 @@ namespace RandomDataWebApi.Controllers
         /// <summary>
         /// Creates a new UUID (GUID).
         /// </summary>
-        /// <returns>A new UUID (GUID).</returns>
+        /// <returns>A version 4 UUID.</returns>
         [HttpGet]
-        public Guid NewUuid() => Guid.NewGuid();
+        public Guid NewUuid()
+        {
+            return Guid.NewGuid();
+        }
 
         [HttpGet]
         public object NewOrderedId()
