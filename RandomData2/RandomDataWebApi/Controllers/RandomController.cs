@@ -88,6 +88,11 @@ namespace RandomDataWebApi.Controllers
             return Guid.NewGuid();
         }
 
+        /// <summary>
+        /// Creates a new time-ordered 16-byte ID with the UUID format.
+        /// The upper 8 bytes represent ticks of date/time (by 10<sup>-7</sup> second) and the other 8 bytes are randomly generated.
+        /// </summary>
+        /// <returns>A pair of the ID and the created date/time.</returns>
         [HttpGet]
         [Route("NewOrderedId")]
         public GuidWithDateTime NewOrderedId()
@@ -95,6 +100,11 @@ namespace RandomDataWebApi.Controllers
             return RandomData.GenerateOrderedGuid();
         }
 
+        /// <summary>
+        /// Creates a new time-ordered 16-byte ID with the UUID format, which is ordered for the uniqueidentifier data type of the SQL Server.
+        /// The lower 8 bytes represent ticks of date/time (by 10<sup>-7</sup> second) and the other 8 bytes are randomly generated.
+        /// </summary>
+        /// <returns>A pair of the ID and the created date/time.</returns>
         [HttpGet]
         [Route("NewOrderedId/sqlserver")]
         public GuidWithDateTime NewOrderedId_SqlServer()
@@ -102,6 +112,11 @@ namespace RandomDataWebApi.Controllers
             return RandomData.GenerateOrderedSqlGuid();
         }
 
+        /// <summary>
+        /// Creates a new time-ordered 16-byte ID with the UUID format.
+        /// The upper 6 bytes represent ticks of date/time (by about 10<sup>-3</sup> second) and the other 10 bytes are randomly generated.
+        /// </summary>
+        /// <returns>A pair of the ID and the created date/time.</returns>
         [HttpGet]
         [Route("NewOrderedId2")]
         public GuidWithDateTime NewOrderedId2()
@@ -109,6 +124,11 @@ namespace RandomDataWebApi.Controllers
             return RandomData.GenerateOrderedGuid2();
         }
 
+        /// <summary>
+        /// Creates a new time-ordered 16-byte ID with the UUID format, which is ordered for the uniqueidentifier data type of the SQL Server.
+        /// The lower 6 bytes represent ticks of date/time (by about 10<sup>-3</sup> second) and the other 10 bytes are randomly generated.
+        /// </summary>
+        /// <returns>A pair of the ID and the created date/time.</returns>
         [HttpGet]
         [Route("NewOrderedId2/sqlserver")]
         public GuidWithDateTime NewOrderedId2_SqlServer()
