@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -7,6 +7,14 @@
     @RenderSection("scripts", required: false)
 </head>
 <body>
-    @RenderBody()
+    <div class="container body-content">
+        @RenderBody()
+        <footer class="help-page">
+            <p>
+                <a href="https://github.com/sakapon-net/Random-Data-Web-API" target="_blank">Project Site (GitHub)</a><br />
+                © 2014 Keiho Sakapon
+            </p>
+        </footer>
+    </div>
 </body>
 </html>
