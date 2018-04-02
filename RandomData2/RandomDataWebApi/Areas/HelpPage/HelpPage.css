@@ -9,7 +9,7 @@ footer.help-page,
 .help-page-table th,
 .help-page-table pre,
 .help-page-table p {
-    font-family: "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 .help-page pre.wrapped {
