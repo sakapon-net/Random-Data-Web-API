@@ -5,6 +5,7 @@
 .help-page h3,
 .help-page .h3,
 #body.help-page,
+footer.help-page,
 .help-page-table th,
 .help-page-table pre,
 .help-page-table p {
@@ -122,13 +123,20 @@
     font-size: 20px;
 }
 
-#body.help-page {
-    font-size: 14px;
+#body.help-page,
+footer.help-page {
+    font-size: 16px;
     line-height: 143%;
-    color: #333;
+    color: #222;
 }
 
 .help-page a {
     color: #0000EE;
     text-decoration: none;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
 }
