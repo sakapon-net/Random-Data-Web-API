@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using RandomDataWebApi;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,8 +13,9 @@
         @RenderBody()
         <footer class="help-page">
             <p>
+                @WebApiApplication.Title @($"v{WebApiApplication.Version}") -
                 <a href="https://github.com/sakapon-net/Random-Data-Web-API" target="_blank">Project Site on GitHub</a><br />
-                © 2014 Keiho Sakapon
+                @WebApiApplication.Copyright
             </p>
         </footer>
     </div>

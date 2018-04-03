@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Http;
@@ -12,6 +13,10 @@ namespace RandomDataWebApi
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        public static string Title { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+        public static string Copyright { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+        public static string Version { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
