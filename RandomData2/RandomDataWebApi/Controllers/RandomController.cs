@@ -15,7 +15,7 @@ namespace RandomDataWebApi.Controllers
     public class RandomController : ApiController
     {
         /// <summary>
-        /// Creates new alphabets with the specified length.
+        /// Creates new alphabets of the specified length.
         /// </summary>
         /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
         /// <returns>Alphabets.</returns>
@@ -27,7 +27,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates new alphanumerics with the specified length.
+        /// Creates new alphanumerics of the specified length.
         /// </summary>
         /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
         /// <returns>Alphanumerics.</returns>
@@ -39,7 +39,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new byte sequence with the specified length.
+        /// Creates a new byte sequence of the specified length, with the lowercase hexadecimal format.
         /// </summary>
         /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
         /// <returns>The lowercase hexadecimal format.</returns>
@@ -52,7 +52,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new byte sequence with the specified length.
+        /// Creates a new byte sequence of the specified length, with the uppercase hexadecimal format.
         /// </summary>
         /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
         /// <returns>The uppercase hexadecimal format.</returns>
@@ -65,7 +65,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new byte sequence with the specified length.
+        /// Creates a new byte sequence of the specified length, with the Base64 format.
         /// </summary>
         /// <param name="length">The length of the result. 0 ≦ x ≦ 4096.</param>
         /// <returns>The Base64 format.</returns>
