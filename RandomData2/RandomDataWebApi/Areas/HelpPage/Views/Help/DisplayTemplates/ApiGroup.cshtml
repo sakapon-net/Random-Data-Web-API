@@ -28,7 +28,7 @@
             <td class="api-documentation">
             @if (api.Documentation != null)
             {
-                <p>@api.Documentation</p>
+                <p>@Html.Raw(api.Documentation)</p>
             }
             else
             {

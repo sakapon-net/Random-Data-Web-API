@@ -78,9 +78,9 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new UUID (GUID).
+        /// Creates a new UUID (GUID), in particular <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29" target="_blank">a version 4 UUID</a>.
         /// </summary>
-        /// <returns>A <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29" target="_blank">version 4 UUID</a>.</returns>
+        /// <returns>A UUID (GUID).</returns>
         [HttpGet]
         [Route("NewUuid")]
         public Guid NewUuid()
@@ -89,7 +89,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new time-ordered 16-byte ID with the UUID format.
+        /// Creates a new time-ordered 16-byte ID with the UUID format.<br />
         /// The upper 8 bytes represent ticks of date/time (by 10<sup>-7</sup> second) and the other 8 bytes are randomly generated.
         /// </summary>
         /// <returns>A pair of the ID and the created date/time.</returns>
@@ -101,7 +101,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new time-ordered 16-byte ID with the UUID format, which is ordered for the uniqueidentifier data type of the SQL Server.
+        /// Creates a new time-ordered 16-byte ID with the UUID format, which is ordered for the uniqueidentifier data type of the SQL Server.<br />
         /// The lower 8 bytes represent ticks of date/time (by 10<sup>-7</sup> second) and the other 8 bytes are randomly generated.
         /// </summary>
         /// <returns>A pair of the ID and the created date/time.</returns>
@@ -113,7 +113,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new time-ordered 16-byte ID with the UUID format.
+        /// Creates a new time-ordered 16-byte ID with the UUID format.<br />
         /// The upper 6 bytes represent ticks of date/time (by about 10<sup>-3</sup> second) and the other 10 bytes are randomly generated.
         /// </summary>
         /// <returns>A pair of the ID and the created date/time.</returns>
@@ -125,7 +125,7 @@ namespace RandomDataWebApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new time-ordered 16-byte ID with the UUID format, which is ordered for the uniqueidentifier data type of the SQL Server.
+        /// Creates a new time-ordered 16-byte ID with the UUID format, which is ordered for the uniqueidentifier data type of the SQL Server.<br />
         /// The lower 6 bytes represent ticks of date/time (by about 10<sup>-3</sup> second) and the other 10 bytes are randomly generated.
         /// </summary>
         /// <returns>A pair of the ID and the created date/time.</returns>
