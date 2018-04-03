@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Blaze.Randomization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 
 namespace UnitTest.Client
 {
@@ -128,7 +129,7 @@ namespace UnitTest.Client
             for (int i = 0; i < 100; i++)
             {
                 var result = await HttpHelper.GetAsync<GuidWithDateTime>("api/NewOrderedId");
-                Console.WriteLine(result.Guid);
+                Console.WriteLine(JsonConvert.SerializeObject(result));
             }
         }
 
@@ -138,7 +139,7 @@ namespace UnitTest.Client
             for (int i = 0; i < 100; i++)
             {
                 var result = await HttpHelper.GetAsync<GuidWithDateTime>("api/NewOrderedId/sqlserver");
-                Console.WriteLine(result.Guid);
+                Console.WriteLine(JsonConvert.SerializeObject(result));
             }
         }
 
@@ -148,7 +149,7 @@ namespace UnitTest.Client
             for (int i = 0; i < 100; i++)
             {
                 var result = await HttpHelper.GetAsync<GuidWithDateTime>("api/NewOrderedId2");
-                Console.WriteLine(result.Guid);
+                Console.WriteLine(JsonConvert.SerializeObject(result));
             }
         }
 
@@ -158,7 +159,7 @@ namespace UnitTest.Client
             for (int i = 0; i < 100; i++)
             {
                 var result = await HttpHelper.GetAsync<GuidWithDateTime>("api/NewOrderedId2/sqlserver");
-                Console.WriteLine(result.Guid);
+                Console.WriteLine(JsonConvert.SerializeObject(result));
             }
         }
     }
