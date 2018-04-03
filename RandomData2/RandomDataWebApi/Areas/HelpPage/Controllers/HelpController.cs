@@ -59,5 +59,10 @@ namespace RandomDataWebApi.Areas.HelpPage.Controllers
 
             return View(ErrorViewName);
         }
+
+        public ActionResult JsonTest()
+        {
+            return View();
+        }
     }
 }

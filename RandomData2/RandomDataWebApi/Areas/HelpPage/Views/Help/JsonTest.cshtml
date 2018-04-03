@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Random Data Web API - Test";
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                @Html.ActionLink("Random Data Web API", "Index")
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        <h1>@ViewBag.Title</h1>
+        <p>This Web API supports CORS (Cross-Origin Resource Sharing).</p>
+    </section>
+</div>
