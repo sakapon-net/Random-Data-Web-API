@@ -15,7 +15,7 @@
     <section class="content-wrapper main-content clear-fix">
         <h1>@ViewBag.Title</h1>
         <p>This Web API supports CORS (Cross-Origin Resource Sharing).</p>
-        <p>Domain: @Html.TextBox("TargetDomain", string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority))</p>
+        <p>Domain: @Html.TextBox("TargetDomain", $"{Request.Url.Scheme}://{Request.Url.Authority}", new { style = "width:300px" })</p>
         <dl>
             <dt>NewAlphabets</dt>
             <dd>
@@ -97,53 +97,53 @@
     <script type="text/javascript">
         $(function () {
             $("#NewAlphabetsButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewAlphabets/" + $("#NewAlphabetsLength").val()).done(function (data) {
+                $.getJSON($("#TargetDomain").val() + "/api/NewAlphabets/" + $("#NewAlphabetsLength").val()).done(function (data) {
                     $("#NewAlphabetsResult").text(data);
                 });
             });
             $("#NewAlphanumericsButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewAlphanumerics/" + $("#NewAlphanumericsLength").val()).done(function (data) {
+                $.getJSON($("#TargetDomain").val() + "/api/NewAlphanumerics/" + $("#NewAlphanumericsLength").val()).done(function (data) {
                     $("#NewAlphanumericsResult").text(data);
                 });
             });
             $("#NewBytesHexLowerButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewBytes/hexlower/" + $("#NewBytesHexLowerLength").val()).done(function (data) {
+                $.getJSON($("#TargetDomain").val() + "/api/NewBytes/hexlower/" + $("#NewBytesHexLowerLength").val()).done(function (data) {
                     $("#NewBytesHexLowerResult").text(data);
                 });
             });
             $("#NewBytesHexUpperButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewBytes/hexupper/" + $("#NewBytesHexUpperLength").val()).done(function (data) {
+                $.getJSON($("#TargetDomain").val() + "/api/NewBytes/hexupper/" + $("#NewBytesHexUpperLength").val()).done(function (data) {
                     $("#NewBytesHexUpperResult").text(data);
                 });
             });
             $("#NewBytesBase64Button").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewBytes/base64/" + $("#NewBytesBase64Length").val()).done(function (data) {
+                $.getJSON($("#TargetDomain").val() + "/api/NewBytes/base64/" + $("#NewBytesBase64Length").val()).done(function (data) {
                     $("#NewBytesBase64Result").text(data);
                 });
             });
             $("#NewUuidButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewUuid").done(function (data) {
+                $.getJSON($("#TargetDomain").val() + "/api/NewUuid").done(function (data) {
                     $("#NewUuidResult").text(data);
                 });
             });
             $("#NewOrderedIdButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId").done(function (data) {
-                    $("#NewOrderedIdResult").text(data.id + "\n" + data.date);
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId").done(function (data) {
+                    $("#NewOrderedIdResult").text(data.Guid + "\n" + data.DateTime);
                 });
             });
             $("#NewOrderedIdSqlServerButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId/sqlserver").done(function (data) {
-                    $("#NewOrderedIdSqlServerResult").text(data.id + "\n" + data.date);
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId/sqlserver").done(function (data) {
+                    $("#NewOrderedIdSqlServerResult").text(data.Guid + "\n" + data.DateTime);
                 });
             });
             $("#NewOrderedId2Button").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId2").done(function (data) {
-                    $("#NewOrderedId2Result").text(data.id + "\n" + data.date);
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId2").done(function (data) {
+                    $("#NewOrderedId2Result").text(data.Guid + "\n" + data.DateTime);
                 });
             });
             $("#NewOrderedId2SqlServerButton").click(function () {
-                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId2/sqlserver").done(function (data) {
-                    $("#NewOrderedId2SqlServerResult").text(data.id + "\n" + data.date);
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId2/sqlserver").done(function (data) {
+                    $("#NewOrderedId2SqlServerResult").text(data.Guid + "\n" + data.DateTime);
                 });
             });
         });
