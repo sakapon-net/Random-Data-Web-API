@@ -15,5 +15,137 @@
     <section class="content-wrapper main-content clear-fix">
         <h1>@ViewBag.Title</h1>
         <p>This Web API supports CORS (Cross-Origin Resource Sharing).</p>
+        <p>Domain: @Html.TextBox("TargetDomain", string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority))</p>
+        <dl>
+            <dt>NewAlphabets</dt>
+            <dd>
+                <p>
+                    String length: @Html.TextBox("NewAlphabetsLength", 8)
+                    <button id="NewAlphabetsButton">Generate</button>
+                </p>
+                <pre id="NewAlphabetsResult"> </pre>
+            </dd>
+            <dt>NewAlphanumerics</dt>
+            <dd>
+                <p>
+                    String length: @Html.TextBox("NewAlphanumericsLength", 8)
+                    <button id="NewAlphanumericsButton">Generate</button>
+                </p>
+                <pre id="NewAlphanumericsResult"> </pre>
+            </dd>
+            <dt>NewBytes (lowercase hexadecimal)</dt>
+            <dd>
+                <p>
+                    Byte length: @Html.TextBox("NewBytesHexLowerLength", 16)
+                    <button id="NewBytesHexLowerButton">Generate</button>
+                </p>
+                <pre id="NewBytesHexLowerResult"> </pre>
+            </dd>
+            <dt>NewBytes (uppercase hexadecimal)</dt>
+            <dd>
+                <p>
+                    Byte length: @Html.TextBox("NewBytesHexUpperLength", 16)
+                    <button id="NewBytesHexUpperButton">Generate</button>
+                </p>
+                <pre id="NewBytesHexUpperResult"> </pre>
+            </dd>
+            <dt>NewBytes (Base64)</dt>
+            <dd>
+                <p>
+                    Byte length: @Html.TextBox("NewBytesBase64Length", 16)
+                    <button id="NewBytesBase64Button">Generate</button>
+                </p>
+                <pre id="NewBytesBase64Result"> </pre>
+            </dd>
+            <dt>NewUuid</dt>
+            <dd>
+                <p>
+                    <button id="NewUuidButton">Generate</button>
+                </p>
+                <pre id="NewUuidResult"> </pre>
+            </dd>
+            <dt>NewOrderedId</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedIdButton">Generate</button>
+                </p>
+                <pre id="NewOrderedIdResult"> </pre>
+            </dd>
+            <dt>NewOrderedId (SQL Server)</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedIdSqlServerButton">Generate</button>
+                </p>
+                <pre id="NewOrderedIdSqlServerResult"> </pre>
+            </dd>
+            <dt>NewOrderedId2</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedId2Button">Generate</button>
+                </p>
+                <pre id="NewOrderedId2Result"> </pre>
+            </dd>
+            <dt>NewOrderedId2 (SQL Server)</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedId2SqlServerButton">Generate</button>
+                </p>
+                <pre id="NewOrderedId2SqlServerResult"> </pre>
+            </dd>
+        </dl>
     </section>
+    <script type="text/javascript">
+        $(function () {
+            $("#NewAlphabetsButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewAlphabets/" + $("#NewAlphabetsLength").val()).done(function (data) {
+                    $("#NewAlphabetsResult").text(data);
+                });
+            });
+            $("#NewAlphanumericsButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewAlphanumerics/" + $("#NewAlphanumericsLength").val()).done(function (data) {
+                    $("#NewAlphanumericsResult").text(data);
+                });
+            });
+            $("#NewBytesHexLowerButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewBytes/hexlower/" + $("#NewBytesHexLowerLength").val()).done(function (data) {
+                    $("#NewBytesHexLowerResult").text(data);
+                });
+            });
+            $("#NewBytesHexUpperButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewBytes/hexupper/" + $("#NewBytesHexUpperLength").val()).done(function (data) {
+                    $("#NewBytesHexUpperResult").text(data);
+                });
+            });
+            $("#NewBytesBase64Button").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewBytes/base64/" + $("#NewBytesBase64Length").val()).done(function (data) {
+                    $("#NewBytesBase64Result").text(data);
+                });
+            });
+            $("#NewUuidButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewUuid").done(function (data) {
+                    $("#NewUuidResult").text(data);
+                });
+            });
+            $("#NewOrderedIdButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId").done(function (data) {
+                    $("#NewOrderedIdResult").text(data.id + "\n" + data.date);
+                });
+            });
+            $("#NewOrderedIdSqlServerButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId/sqlserver").done(function (data) {
+                    $("#NewOrderedIdSqlServerResult").text(data.id + "\n" + data.date);
+                });
+            });
+            $("#NewOrderedId2Button").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId2").done(function (data) {
+                    $("#NewOrderedId2Result").text(data.id + "\n" + data.date);
+                });
+            });
+            $("#NewOrderedId2SqlServerButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/json/NewOrderedId2/sqlserver").done(function (data) {
+                    $("#NewOrderedId2SqlServerResult").text(data.id + "\n" + data.date);
+                });
+            });
+        });
+    </script>
 </div>
