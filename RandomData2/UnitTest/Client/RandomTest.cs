@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Blaze.Randomization;
@@ -51,6 +52,64 @@ namespace UnitTest.Client
         {
             foreach (var item in StatusCodes_4096)
                 Assert.AreEqual(item.Value, await HttpHelper.GetAsync_StatusCode($"api/NewBytes/base64/{item.Key}"));
+        }
+
+        static readonly int[] Lengths_4096 = Enumerable.Range(0, 50).Concat(Enumerable.Range(4097 - 10, 10)).ToArray();
+
+        [TestMethod]
+        async public Task NewAlphabets()
+        {
+            foreach (var length in Lengths_4096)
+            {
+                var result = await HttpHelper.GetAsync<string>($"api/NewAlphabets/{length}");
+                Assert.AreEqual(length, result.Length);
+                Console.WriteLine(result);
+            }
+        }
+
+        [TestMethod]
+        async public Task NewAlphanumerics()
+        {
+            foreach (var length in Lengths_4096)
+            {
+                var result = await HttpHelper.GetAsync<string>($"api/NewAlphanumerics/{length}");
+                Assert.AreEqual(length, result.Length);
+                Console.WriteLine(result);
+            }
+        }
+
+        [TestMethod]
+        async public Task NewBytes_HexLower()
+        {
+            foreach (var length in Lengths_4096)
+            {
+                var result = await HttpHelper.GetAsync<string>($"api/NewBytes/hexlower/{length}");
+                Assert.AreEqual(2 * length, result.Length);
+                Console.WriteLine(result);
+            }
+        }
+
+        [TestMethod]
+        async public Task NewBytes_HexUpper()
+        {
+            foreach (var length in Lengths_4096)
+            {
+                var result = await HttpHelper.GetAsync<string>($"api/NewBytes/hexupper/{length}");
+                Assert.AreEqual(2 * length, result.Length);
+                Console.WriteLine(result);
+            }
+        }
+
+        [TestMethod]
+        async public Task NewBytes_Base64()
+        {
+            foreach (var length in Lengths_4096)
+            {
+                var result = await HttpHelper.GetAsync<string>($"api/NewBytes/base64/{length}");
+                var bytes = Convert.FromBase64String(result);
+                Assert.AreEqual(length, bytes.Length);
+                Console.WriteLine(result);
+            }
         }
 
         [TestMethod]
