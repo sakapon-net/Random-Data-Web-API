@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -10,6 +11,13 @@ namespace UnitTest.Client
     [TestClass]
     public class GlobalTest
     {
+        [TestMethod]
+        async public Task UriParameters()
+        {
+            Assert.AreEqual(HttpStatusCode.NotFound, await HttpHelper.GetAsync_StatusCode("api/NewAlphabets?length=8"));
+            Assert.AreEqual(HttpStatusCode.NotFound, await HttpHelper.GetAsync_StatusCode("api/NewAlphabets/?length=8"));
+        }
+
         [TestMethod]
         async public Task Cors()
         {
