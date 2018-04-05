@@ -4,7 +4,8 @@
 他者の提供するサービスは終了することがあるため、なるべく自身のアプリをそれに依存させず、自身でサービスを運用することが望ましいでしょう。
 
 そこでこの Web API では、ソースコードをオープンソース ライセンスのもとで提供し、それを利用する開発者自身がサービスをホストすることを想定します。
-例えば Azure Web App を利用すれば GitHub から直接ビルドおよびデプロイができるため、簡単な手順でサービスの運用を開始させることができます。(手順は T.B.D.)
+例えば Azure Web App などの PaaS を利用すれば GitHub から直接ビルドおよびデプロイができるため、簡単な手順でサービスの運用を開始させることができます。  
+[デプロイ手順](Deployment.md)
 
-なお、[randomdata.azurewebsites.net](https://randomdata.azurewebsites.net/) はカタログとして用意しているものです。
+なお、[randomdata.azurewebsites.net](https://randomdata.azurewebsites.net/) はカタログとして提供しているサイトです。
 保証・サポートはありません。
