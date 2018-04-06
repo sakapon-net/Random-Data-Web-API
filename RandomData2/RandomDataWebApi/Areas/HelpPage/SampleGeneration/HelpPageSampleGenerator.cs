@@ -9,9 +9,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
+using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.Linq;
 using Newtonsoft.Json;
+using RandomDataWebApi.Controllers;
 
 namespace RandomDataWebApi.Areas.HelpPage
 {
@@ -111,7 +113,7 @@ namespace RandomDataWebApi.Areas.HelpPage
             // Here we cannot rely on formatters because we don't know what's in the HttpResponseMessage, it might not even use formatters.
             if (type != null && !typeof(HttpResponseMessage).IsAssignableFrom(type))
             {
-                object sampleObject = GetSampleObject(type);
+                object sampleObject = controllerName == "Random" ? GetSampleObjectForRandom(api) : GetSampleObject(type);
                 foreach (var formatter in formatters)
                 {
                     foreach (MediaTypeHeaderValue mediaType in formatter.SupportedMediaTypes)
@@ -133,6 +135,16 @@ namespace RandomDataWebApi.Areas.HelpPage
             }
 
             return samples;
+        }
+
+        private static readonly RandomController RandomController = new RandomController();
+        private object GetSampleObjectForRandom(ApiDescription api)
+        {
+            var method = ((ReflectedHttpActionDescriptor)api.ActionDescriptor).MethodInfo;
+            var parameters = api.ParameterDescriptions
+                .Select(p => GetSampleObject(p.ParameterDescriptor.ParameterType))
+                .ToArray();
+            return method.Invoke(RandomController, parameters);
         }
 
         /// <summary>
