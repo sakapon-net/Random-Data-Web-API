@@ -7,14 +7,13 @@
 
 @{
     ApiDescription description = Model.ApiDescription;
-
-    var sampleUri = description.ParameterDescriptions
-        .Where(p => p.ParameterDescriptor.ParameterType == typeof(int))
-        .Aggregate(description.RelativePath, (uri, p) => uri.Replace($"{{{p.Name}}}", "8"));
 }
 <h1>@description.HttpMethod.Method @description.RelativePath</h1>
 <div>
-    <p>@Html.TextLink("/" + sampleUri)</p>
+    @if (description.ActionDescriptor.ControllerDescriptor.ControllerName == "Random")
+    {
+        <p>@Html.TextLink("/" + Model.SampleUri)</p>
+    }
     <p>@Html.Raw(description.Documentation)</p>
 
     <h2>Request Information</h2>

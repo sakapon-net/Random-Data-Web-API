@@ -246,6 +246,7 @@ namespace RandomDataWebApi.Areas.HelpPage
             GenerateUriParameters(apiModel, modelGenerator);
             GenerateRequestModelDescription(apiModel, modelGenerator, sampleGenerator);
             GenerateResourceDescription(apiModel, modelGenerator);
+            GenerateSampleUri(apiModel, sampleGenerator);
             GenerateSamples(apiModel, sampleGenerator);
 
             return apiModel;
@@ -383,6 +384,12 @@ namespace RandomDataWebApi.Areas.HelpPage
             {
                 apiModel.ResourceDescription = modelGenerator.GetOrCreateModelDescription(responseType);
             }
+        }
+
+        private static void GenerateSampleUri(HelpPageApiModel apiModel, HelpPageSampleGenerator sampleGenerator)
+        {
+            apiModel.SampleUri = apiModel.ApiDescription.ParameterDescriptions
+                .Aggregate(apiModel.ApiDescription.RelativePath, (uri, p) => uri.Replace($"{{{p.Name}}}", sampleGenerator.GetSampleObject(p.ParameterDescriptor.ParameterType)?.ToString()));
         }
 
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as ErrorMessages.")]
