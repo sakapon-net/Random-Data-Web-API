@@ -2,11 +2,12 @@
 @using System.Web.Http.Controllers
 @using System.Web.Http.Description
 @using System.Collections.ObjectModel
+@using RandomDataWebApi
 @using RandomDataWebApi.Areas.HelpPage.Models
 @model Collection<ApiDescription>
 
 @{
-    ViewBag.Title = "Random Data Web API";
+    ViewBag.Title = WebApiApplication.Title;
 
     // Group APIs by controller
     ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);

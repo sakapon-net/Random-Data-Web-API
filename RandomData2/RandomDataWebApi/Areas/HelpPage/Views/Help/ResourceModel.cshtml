@@ -1,4 +1,5 @@
 @using System.Web.Http
+@using RandomDataWebApi
 @using RandomDataWebApi.Areas.HelpPage.ModelDescriptions
 @model ModelDescription
 
@@ -7,7 +8,7 @@
     <section class="featured">
         <div class="content-wrapper">
             <p>
-                @Html.ActionLink("Random Data Web API", "Index")
+                @Html.ActionLink(WebApiApplication.Title, "Index")
             </p>
         </div>
     </section>

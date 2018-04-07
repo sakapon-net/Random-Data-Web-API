@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Random Data Web API - Test";
+﻿@using RandomDataWebApi
+
+@{
+    ViewBag.Title = $"{WebApiApplication.Title} - Test";
 }
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -8,7 +10,7 @@
     <section class="featured">
         <div class="content-wrapper">
             <p>
-                @Html.ActionLink("Random Data Web API", "Index")
+                @Html.ActionLink(WebApiApplication.Title, "Index")
             </p>
         </div>
     </section>
