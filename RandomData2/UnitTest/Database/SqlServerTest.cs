@@ -49,18 +49,18 @@ namespace UnitTest.Database
         {
             using (var db = new RandomTestDb())
             {
-                var lower = new DateTime(2014, 4, 10, 14, 54, 59).ToSqlGuid2();
-                var upper = new DateTime(2014, 4, 10, 14, 55, 1).ToSqlGuid2();
+                var now = DateTime.UtcNow;
+                var lower = now.AddSeconds(-30).ToSqlGuid2();
+                var upper = now.ToSqlGuid2();
 
                 var products = db.Products
                     .Where(p => p.Id.CompareTo(lower) > 0)
                     .Where(p => p.Id.CompareTo(upper) < 0)
                     .ToArray();
 
-                foreach (var item in products)
-                {
-                    Console.WriteLine(item.Created);
-                }
+                Assert.AreEqual(20, products.Length);
+                foreach (var product in products)
+                    Console.WriteLine(product.Created.ToIso8601String());
             }
         }
     }
