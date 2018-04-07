@@ -84,43 +84,6 @@ namespace UnitTest.Database
             CollectionAssert.AreEqual(expected.Select(x => x.Name).ToArray(), actual.Select(x => x.Name).ToArray());
         }
 
-        [TestMethod]
-        public void Data()
-        {
-            InsertData();
-            GetData();
-        }
-
-        static void InsertData()
-        {
-            using (var db = new RandomTestDb())
-            {
-                for (int i = 0; i < 20; i++)
-                {
-                    var id = RandomData.GenerateOrderedGuid2();
-                    var idSql = RandomData.GenerateOrderedSqlGuid2();
-                    var name = RandomData.GenerateAlphanumerics(20);
-
-                    db.Categories.Add(new Category
-                    {
-                        Id = id.Guid.ToString(),
-                        Created = id.DateTime,
-                        Name = name,
-                    });
-                    db.Products.Add(new Product
-                    {
-                        Id = idSql.Guid,
-                        Created = idSql.DateTime,
-                        Name = name,
-                    });
-
-                    System.Threading.Thread.Sleep(1);
-                }
-
-                db.SaveChanges();
-            }
-        }
-
         static void GetData()
         {
             using (var db = new RandomTestDb())
