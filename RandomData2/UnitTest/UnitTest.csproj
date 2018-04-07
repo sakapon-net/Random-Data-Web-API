@@ -69,6 +69,7 @@
     <Compile Include="Client\GlobalTest.cs" />
     <Compile Include="Client\HttpHelper.cs" />
     <Compile Include="Client\RandomTest.cs" />
+    <Compile Include="Database\RandomTestDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
