@@ -9,6 +9,44 @@ namespace UnitTest.Database
     public class SqlServerTest
     {
         [TestMethod]
+        public void Categories()
+        {
+            var expected = Enumerable.Range(0, 10)
+                .Select(i =>
+                {
+                    var id = RandomData.GenerateOrderedGuid2();
+                    var name = RandomData.GenerateAlphanumerics(20);
+                    System.Threading.Thread.Sleep(1);
+
+                    return new Category
+                    {
+                        Id = id.Guid.ToString(),
+                        Created = id.DateTime,
+                        Name = name,
+                    };
+                })
+                .ToArray();
+
+            using (var db = new RandomTestDb())
+            {
+                db.Categories.AddRange(expected);
+                db.SaveChanges();
+            }
+
+            Category[] actual;
+            using (var db = new RandomTestDb())
+            {
+                var lower = DateTime.UtcNow.AddSeconds(-30);
+                actual = db.Categories
+                    .Where(p => p.Created.CompareTo(lower) > 0)
+                    .OrderBy(p => p.Id)
+                    .ToArray();
+            }
+
+            CollectionAssert.AreEqual(expected.Select(x => x.Name).ToArray(), actual.Select(x => x.Name).ToArray());
+        }
+
+        [TestMethod]
         public void Data()
         {
             InsertData();
