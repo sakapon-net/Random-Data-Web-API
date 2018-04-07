@@ -25,6 +25,11 @@ namespace RandomDataWebApi
 
         void Application_BeginRequest(object sender, EventArgs e)
         {
+            ValidateUrlScheme();
+        }
+
+        void ValidateUrlScheme()
+        {
             if (!Request.IsSecureConnection &&
                 RequireHttps &&
                 !string.Equals(Request.Url.Host, "localhost", StringComparison.InvariantCultureIgnoreCase))
