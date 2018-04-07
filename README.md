@@ -8,14 +8,14 @@ This Web API supports CORS (Cross-Origin Resource Sharing).
 - alphabets
 - alphanumerics
 - byte sequence
-- UUID
+- UUID (GUID)
 - time-ordered ID
 
 ## Web App
 This project is actually the ASP.NET Web app that contains the following:
 - Web API
-- Help page with specification
-- Test page using jQuery
+- help page with specification
+- test page using jQuery
 
 [randomdata.azurewebsites.net](https://randomdata.azurewebsites.net/) is a sample deployment.
 
