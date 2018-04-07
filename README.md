@@ -1,5 +1,23 @@
 # Random Data Web API
-Provides the JSON API to generate random data.
+Provides the JSON API to generate random data.  
+This Web API supports CORS (Cross-Origin Resource Sharing).
+
+[日本語のドキュメント](docs)
+
+## Random Data
+- alphabets
+- alphanumerics
+- byte sequence
+- UUID
+- time-ordered ID
+
+## Web App
+This project is actually the ASP.NET Web app that contains the following:
+- Web API
+- Help page with specification
+- Test page using jQuery
+
+[randomdata.azurewebsites.net](https://randomdata.azurewebsites.net/) is a sample deployment.
 
 ### Development Environment
 - .NET Framework 4.5
