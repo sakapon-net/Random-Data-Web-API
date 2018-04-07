@@ -47,6 +47,44 @@ namespace UnitTest.Database
         }
 
         [TestMethod]
+        public void Products()
+        {
+            var expected = Enumerable.Range(0, 10)
+                .Select(i =>
+                {
+                    var idSql = RandomData.GenerateOrderedSqlGuid2();
+                    var name = RandomData.GenerateAlphanumerics(20);
+                    System.Threading.Thread.Sleep(1);
+
+                    return new Product
+                    {
+                        Id = idSql.Guid,
+                        Created = idSql.DateTime,
+                        Name = name,
+                    };
+                })
+                .ToArray();
+
+            using (var db = new RandomTestDb())
+            {
+                db.Products.AddRange(expected);
+                db.SaveChanges();
+            }
+
+            Product[] actual;
+            using (var db = new RandomTestDb())
+            {
+                var lower = DateTime.UtcNow.AddSeconds(-30);
+                actual = db.Products
+                    .Where(p => p.Created.CompareTo(lower) > 0)
+                    .OrderBy(p => p.Id)
+                    .ToArray();
+            }
+
+            CollectionAssert.AreEqual(expected.Select(x => x.Name).ToArray(), actual.Select(x => x.Name).ToArray());
+        }
+
+        [TestMethod]
         public void Data()
         {
             InsertData();
