@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // 制御されます。アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更します。
 [assembly: AssemblyTitle("Random Data Web API")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Provides the JSON Web API to generate random data.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Keiho Sakapon")]
 [assembly: AssemblyProduct("Random Data Web API")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // すべての値を指定するか、下のように "*" を使ってリビジョンおよびビルド番号を 
 // 既定値にすることができます:
-[assembly: AssemblyVersion("2.0.5.0")]
-[assembly: AssemblyFileVersion("2.0.5")]
+[assembly: AssemblyVersion("2.0.6.0")]
+[assembly: AssemblyFileVersion("2.0.6")]

@@ -14,8 +14,9 @@ namespace RandomDataWebApi
     public class WebApiApplication : System.Web.HttpApplication
     {
         public static string Title { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+        public static string Description { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyDescriptionAttribute>().Description;
         public static string Copyright { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
-        public static string Version { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
+        public static string FileVersion { get; } = typeof(WebApiApplication).Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
 
         protected void Application_Start()
         {

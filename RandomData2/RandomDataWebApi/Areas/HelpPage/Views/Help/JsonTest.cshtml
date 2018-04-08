@@ -16,8 +16,11 @@
     </section>
     <section class="content-wrapper main-content clear-fix">
         <h1>@ViewBag.Title</h1>
-        <p>This Web API supports CORS (Cross-Origin Resource Sharing).</p>
-        <p>Domain: @Html.TextBox("TargetDomain", $"{Request.Url.Scheme}://{Request.Url.Authority}", new { style = "width:300px" })</p>
+        <p>
+            @WebApiApplication.Description<br />
+            This Web API supports CORS (Cross-Origin Resource Sharing).
+        </p>
+        <p>API Domain: @Html.TextBox("TargetDomain", $"{Request.Url.Scheme}://{Request.Url.Authority}", new { style = "width:300px" })</p>
         <dl>
             <dt>NewAlphabets</dt>
             <dd>
