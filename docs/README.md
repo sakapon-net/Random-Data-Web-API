@@ -2,6 +2,10 @@
 ランダムなデータを生成するための JSON Web API を提供します。  
 この Web API は CORS (Cross-Origin Resource Sharing) をサポートしています。
 
+PaaS を利用して、この Web API を簡単にホストすることができます。
+例えば、このリポジトリを fork すれば、Microsoft Azure Portal を利用して Web API を Azure Web App に直接デプロイできます。
+またこの場合は継続的デプロイが構成され、fork したリポジトリが更新されれば Azure Web App も自動的に更新されます。
+
 ## ランダム データの種類
 - アルファベット
 - アルファベットと数字
