@@ -1,0 +1,20 @@
+﻿@using RandomDataWebApi
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                @Html.ActionLink(WebApiApplication.Title, "Index")
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        <h1>@ViewBag.Title</h1>
+        <h2>The page was not found, or an unexpected error occurred.</h2>
+    </section>
+</div>

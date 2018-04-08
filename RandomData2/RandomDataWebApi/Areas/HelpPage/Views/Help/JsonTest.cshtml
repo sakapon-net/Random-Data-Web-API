@@ -1,0 +1,156 @@
+﻿@using RandomDataWebApi
+
+@{
+    ViewBag.Title = $"{WebApiApplication.Title} - Test";
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                @Html.ActionLink(WebApiApplication.Title, "Index")
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        <h1>@ViewBag.Title</h1>
+        <p>
+            @WebApiApplication.Description<br />
+            This Web API supports CORS (Cross-Origin Resource Sharing).
+        </p>
+        <p>API Domain: @Html.TextBox("TargetDomain", $"{Request.Url.Scheme}://{Request.Url.Authority}", new { style = "width:300px" })</p>
+        <dl>
+            <dt>NewAlphabets</dt>
+            <dd>
+                <p>
+                    String length: @Html.TextBox("NewAlphabetsLength", 8)
+                    <button id="NewAlphabetsButton">Generate</button>
+                </p>
+                <pre id="NewAlphabetsResult"> </pre>
+            </dd>
+            <dt>NewAlphanumerics</dt>
+            <dd>
+                <p>
+                    String length: @Html.TextBox("NewAlphanumericsLength", 8)
+                    <button id="NewAlphanumericsButton">Generate</button>
+                </p>
+                <pre id="NewAlphanumericsResult"> </pre>
+            </dd>
+            <dt>NewBytes (lowercase hexadecimal)</dt>
+            <dd>
+                <p>
+                    Byte length: @Html.TextBox("NewBytesHexLowerLength", 16)
+                    <button id="NewBytesHexLowerButton">Generate</button>
+                </p>
+                <pre id="NewBytesHexLowerResult"> </pre>
+            </dd>
+            <dt>NewBytes (uppercase hexadecimal)</dt>
+            <dd>
+                <p>
+                    Byte length: @Html.TextBox("NewBytesHexUpperLength", 16)
+                    <button id="NewBytesHexUpperButton">Generate</button>
+                </p>
+                <pre id="NewBytesHexUpperResult"> </pre>
+            </dd>
+            <dt>NewBytes (Base64)</dt>
+            <dd>
+                <p>
+                    Byte length: @Html.TextBox("NewBytesBase64Length", 16)
+                    <button id="NewBytesBase64Button">Generate</button>
+                </p>
+                <pre id="NewBytesBase64Result"> </pre>
+            </dd>
+            <dt>NewUuid</dt>
+            <dd>
+                <p>
+                    <button id="NewUuidButton">Generate</button>
+                </p>
+                <pre id="NewUuidResult"> </pre>
+            </dd>
+            <dt>NewOrderedId</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedIdButton">Generate</button>
+                </p>
+                <pre id="NewOrderedIdResult"> </pre>
+            </dd>
+            <dt>NewOrderedId (SQL Server)</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedIdSqlServerButton">Generate</button>
+                </p>
+                <pre id="NewOrderedIdSqlServerResult"> </pre>
+            </dd>
+            <dt>NewOrderedId2</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedId2Button">Generate</button>
+                </p>
+                <pre id="NewOrderedId2Result"> </pre>
+            </dd>
+            <dt>NewOrderedId2 (SQL Server)</dt>
+            <dd>
+                <p>
+                    <button id="NewOrderedId2SqlServerButton">Generate</button>
+                </p>
+                <pre id="NewOrderedId2SqlServerResult"> </pre>
+            </dd>
+        </dl>
+    </section>
+    <script type="text/javascript">
+        $(function () {
+            $("#NewAlphabetsButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewAlphabets/" + $("#NewAlphabetsLength").val()).done(function (data) {
+                    $("#NewAlphabetsResult").text(data);
+                });
+            });
+            $("#NewAlphanumericsButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewAlphanumerics/" + $("#NewAlphanumericsLength").val()).done(function (data) {
+                    $("#NewAlphanumericsResult").text(data);
+                });
+            });
+            $("#NewBytesHexLowerButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewBytes/hexlower/" + $("#NewBytesHexLowerLength").val()).done(function (data) {
+                    $("#NewBytesHexLowerResult").text(data);
+                });
+            });
+            $("#NewBytesHexUpperButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewBytes/hexupper/" + $("#NewBytesHexUpperLength").val()).done(function (data) {
+                    $("#NewBytesHexUpperResult").text(data);
+                });
+            });
+            $("#NewBytesBase64Button").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewBytes/base64/" + $("#NewBytesBase64Length").val()).done(function (data) {
+                    $("#NewBytesBase64Result").text(data);
+                });
+            });
+            $("#NewUuidButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewUuid").done(function (data) {
+                    $("#NewUuidResult").text(data);
+                });
+            });
+            $("#NewOrderedIdButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId").done(function (data) {
+                    $("#NewOrderedIdResult").text(data.Guid + "\n" + data.DateTime);
+                });
+            });
+            $("#NewOrderedIdSqlServerButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId/sqlserver").done(function (data) {
+                    $("#NewOrderedIdSqlServerResult").text(data.Guid + "\n" + data.DateTime);
+                });
+            });
+            $("#NewOrderedId2Button").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId2").done(function (data) {
+                    $("#NewOrderedId2Result").text(data.Guid + "\n" + data.DateTime);
+                });
+            });
+            $("#NewOrderedId2SqlServerButton").click(function () {
+                $.getJSON($("#TargetDomain").val() + "/api/NewOrderedId2/sqlserver").done(function (data) {
+                    $("#NewOrderedId2SqlServerResult").text(data.Guid + "\n" + data.DateTime);
+                });
+            });
+        });
+    </script>
+</div>
