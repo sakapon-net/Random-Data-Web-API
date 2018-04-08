@@ -1,5 +1,5 @@
 # Random Data Web API
-ランダムなデータを生成するための JSON API を提供します。  
+ランダムなデータを生成するための JSON Web API を提供します。  
 この Web API は CORS (Cross-Origin Resource Sharing) をサポートしています。
 
 ## ランダム データの種類
