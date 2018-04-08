@@ -1,5 +1,5 @@
 # Random Data Web API
-Provides the JSON API to generate random data.  
+Provides the JSON Web API to generate random data.  
 This Web API supports CORS (Cross-Origin Resource Sharing).
 
 [日本語のドキュメント](docs)
@@ -28,4 +28,4 @@ This project is actually the ASP.NET Web app that contains the following:
 
 ### Release Notes
 - **v1.0.0** The first release, using ASP.NET MVC.
-- **v2.0.5** Use ASP.NET Web API.
+- **v2.0.6** Use ASP.NET Web API.
