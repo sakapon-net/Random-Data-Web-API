@@ -19,3 +19,8 @@ Web.config には、 次のようなアプリケーション設定がありま�
 - `app:PermanentHttps`
   - リダイレクト時に HTTPS を永続化する場合は `true` を指定します。
   - すなわち、HTTP ステータス コードは `true` のとき 301、`false` のとき 302 です。
+
+### Azure Web App
+Azure Web App では、[アプリケーション設定] で値を設定します。
+
+![](images/AppSettings-Azure.png)
