@@ -8,6 +8,7 @@ PaaS を利用して、この Web API を簡単にホストすることができ
 
 - [ホスティングについて](Hosting.md)
 - [Azure Web App にデプロイする手順](Deployment.md)
+- [アプリケーション設定](AppSettings.md)
 
 ## ランダム データの種類
 - アルファベット
