@@ -8,6 +8,7 @@ PaaS を利用して、この Web API を簡単にホストすることができ
 
 - [ホスティングについて](Hosting.md)
 - [Azure Web App にデプロイする手順](Deployment.md)
+- [アプリケーション設定](AppSettings.md)
 
 ## ランダム データの種類
 - アルファベット
@@ -23,3 +24,8 @@ PaaS を利用して、この Web API を簡単にホストすることができ
 - jQuery を利用したテストページ
 
 [randomdata.azurewebsites.net](https://randomdata.azurewebsites.net/) は配置例です。
+
+## ヘルプページの多言語対応
+ブラウザーの翻訳機能で何とかなるでしょう。
+
+![](images/Help-Translation.gif)
