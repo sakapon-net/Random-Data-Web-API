@@ -23,3 +23,8 @@ PaaS を利用して、この Web API を簡単にホストすることができ
 - jQuery を利用したテストページ
 
 [randomdata.azurewebsites.net](https://randomdata.azurewebsites.net/) は配置例です。
+
+## ヘルプページの多言語対応
+ブラウザーの翻訳機能で何とかなるでしょう。
+
+![](images/Help-Translation.gif)
